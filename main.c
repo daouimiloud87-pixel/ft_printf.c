@@ -1,32 +1,13 @@
-#include "ft_printf.h"
 #include <stdio.h>
+#include "ft_printf.h"
 
-int main()
+
+
+int	main(void)
 {
-	
-	
-	
-	int x = 16;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	ft_printf("Hello %",);
-	printf("Hello %");
-
-	ft_printf("or_printf : %x %X\n",x,x);
-	printf("ft_printf : %x %X\n",x,x);
-
+	char a = 5;
+	ft_printf("%d\n %u\n %s\n %x\n %X\n %%\n %c\n %i\n %p\n",122,-12,"hello",100,100,'A',12,&a);
+	printf("sssss\n");
+		printf("%d\n %u\n %s\n %x\n %X\n %%\n %c\n %i\n %p\n",122,-12,"hello",100,100,'A',12,&a);
 
 }

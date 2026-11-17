@@ -1,18 +1,31 @@
 #include <stdarg.h>
 #include <stdio.h>
-void ft_print_values(int count, ...)
+
+int ft_sum_manual(int count,...)
 {
-    va_list(args);
-    va_start(args,count);
     int i = 0;
+    va_list p;
+    va_start(p,count);
+    char *pi;
     while(i < count)
     {
-        if()
+        va_arg()
+        if(p->gp_offset<48)
+        {
+        pi = p->reg_save_area + p ->gp_offset;
+        printf("%d\n",*(int *)pi );
+        p->gp_offset =40;
+        }
+      
+        i++;
     }
+    va_end(p);
+    return(1);
+
 }
-int main()
+
+int main(void)
 {
-printf("%d\n", ft_max(4, 10, 50, 20, 30));
-printf("%d\n", ft_max(5, -10, -5, -20, -1, -30));
-printf("%d\n", ft_max(3, 7, 7, 2));
+    ft_sum_manual(8, 42, 9,9,4,4,4,455,445);
+    return 0;
 }

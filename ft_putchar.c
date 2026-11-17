@@ -6,13 +6,14 @@
 /*   By: mdaoui <mdaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 08:09:15 by mdaoui            #+#    #+#             */
-/*   Updated: 2026/11/13 10:44:02 by mdaoui           ###   ########.fr       */
+/*   Updated: 2026/11/14 14:44:53 by mdaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int ft_putchar(char c)
+
+int	ft_putchar(char c)
 {
-    write(1, &c, 1);
-    return (1);
+	write(1, &c, 1);
+	return (1);
 }
