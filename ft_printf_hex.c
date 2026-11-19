@@ -6,7 +6,7 @@
 /*   By: mdaoui <mdaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:25:15 by mdaoui            #+#    #+#             */
-/*   Updated: 2026/11/14 14:40:40 by mdaoui           ###   ########.fr       */
+/*   Updated: 2026/11/19 10:53:30 by mdaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ int	ft_printf_hex(unsigned int n, char format)
 int	ft_print_ptr(void *ptr)
 {
 	int	i;
+	int	ret;
 
-	i = 0;
 	if (!ptr)
 		return (ft_print_str("(nil)"));
-	i += ft_print_str("0x");
-	i += ft_putnbr_base((unsigned long)ptr, "0123456789abcdef");
-	return (i);
+	i = ft_print_str("0x");
+	if (i == -1)
+		return (-1);
+	ret = ft_putnbr_base((unsigned long)ptr, "0123456789abcdef");
+	if (ret == -1)
+		return (-1);
+	return (i + ret);
 }

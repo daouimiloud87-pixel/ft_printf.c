@@ -6,21 +6,29 @@
 /*   By: mdaoui <mdaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 08:34:25 by mdaoui            #+#    #+#             */
-/*   Updated: 2026/11/14 14:38:17 by mdaoui           ###   ########.fr       */
+/*   Updated: 2026/11/19 11:40:50 by mdaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+#include "ft_printf.h"
+
 int	ft_print_unsigned(unsigned int n)
 {
-	long	nb;
-	int		count;
+	int	count;
+	int	ret;
 
-	nb = n;
 	count = 0;
-	if (nb > 9)
-		count += ft_print_unsigned(nb / 10);
-	count += ft_putchar(nb % 10 + '0');
-	return (count);
+	if (n > 9)
+	{
+		ret = ft_print_unsigned(n / 10);
+		if (ret == -1)
+			return (-1);
+		count += ret;
+	}
+	ret = ft_putchar(n % 10 + '0');
+	if (ret == -1)
+		return (-1);
+	return (count + ret);
 }

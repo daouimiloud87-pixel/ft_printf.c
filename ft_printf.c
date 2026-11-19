@@ -6,36 +6,47 @@
 /*   By: mdaoui <mdaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 10:43:20 by mdaoui            #+#    #+#             */
-/*   Updated: 2026/11/14 14:24:42 by mdaoui           ###   ########.fr       */
+/*   Updated: 2026/11/19 10:52:41 by mdaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+static int	ft_format(const char *format, va_list args)
 {
-	va_list	args;
-	int		i;
-	int		count ;
+	int	i;
+	int	count;
+	int	ret;
 
-	if (!format)
-		return (-1);
 	i = 0;
 	count = 0;
-	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%')
 		{
-			count += ft_handle_format(format[i + 1], args);
+			if (!format[i + 1])
+				return (-1);
+			ret = ft_handle_format(format[i + 1], args);
 			i += 2;
 		}
 		else
-		{
-			count += ft_putchar(format[i]);
-			i++;
-		}
+			ret = ft_putchar(format[i++]);
+		if (ret == -1)
+			return (-1);
+		count += ret;
 	}
+	return (count);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	if (!format)
+		return (-1);
+	va_start(args, format);
+	count = ft_format(format, args);
 	va_end(args);
 	return (count);
 }

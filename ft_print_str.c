@@ -6,7 +6,7 @@
 /*   By: mdaoui <mdaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 08:14:04 by mdaoui            #+#    #+#             */
-/*   Updated: 2026/11/14 14:36:08 by mdaoui           ###   ########.fr       */
+/*   Updated: 2026/11/19 12:18:13 by mdaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_print_str(char *str)
 		str = "(null)";
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		if (ft_putchar(str[i]) == -1)
+			return (-1);
 		i++;
 	}
 	return (i);
