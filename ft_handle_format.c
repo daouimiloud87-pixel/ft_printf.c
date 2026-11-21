@@ -6,7 +6,7 @@
 /*   By: mdaoui <mdaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 10:01:54 by mdaoui            #+#    #+#             */
-/*   Updated: 2026/11/19 12:20:58 by mdaoui           ###   ########.fr       */
+/*   Updated: 2026/11/21 11:19:54 by mdaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int	ft_handle_format(char c, va_list args)
 		return (ft_printf_hex(va_arg(args, unsigned int), 'X'));
 	if (c == '%')
 		return (ft_putchar('%'));
-	return (-1);
+	if (ft_putchar('%') == -1 || ft_putchar(c) == -1)
+		return (-1);
+	return (2);
 }
